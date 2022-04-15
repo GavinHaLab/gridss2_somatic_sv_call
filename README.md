@@ -7,7 +7,7 @@ https://github.com/PapenfussLab/gridss/blob/master/QuickStart.md#optimise-gridss
 * After assembly, it performs Normal/Tumor somatic variant calling using `gripss`.
 https://github.com/hartwigmedical/hmftools/tree/master/gripss
 
-* GRIDSS being an SV breakpoint caller initially reports all variants as BND but can be post-annotated as Trans, Inv, Ins, Del and Dup with a R script (simple-event-annotation.R). This has already plugged into snakmakme as last rule `rule create_bedpe_with_simpleSVannotation`.
+* GRIDSS being an SV breakpoint caller initially reports all variants as BND but can be post-annotated as Trans, Inv, Ins, Del and Dup with a R script (simple-event-annotation.R). This has already included into snakmakme as last rule `rule create_bedpe_with_simpleSVannotation`.
 
 * Why all calls BND?
  https://github.com/PapenfussLab/gridss/blob/master/Readme.md#why-are-all-calls-bnd
