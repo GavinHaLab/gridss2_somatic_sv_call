@@ -9,5 +9,8 @@ https://github.com/hartwigmedical/hmftools/tree/master/gripss
 
 * GRIDSS being an SV breakpoint caller initially reports all variants as BND but can be post-annotated as Trans, Inv, Ins, Del and Dup with a R script (simple-event-annotation.R) which is used in the last rule `rule create_bedpe_with_simpleSVannotation` in snakemake.
 
+* Why all calls BND?
+ https://github.com/PapenfussLab/gridss/blob/master/Readme.md#why-are-all-calls-bnd
+  
 * Please specify the samples to be analyzed in config/samples.yaml, following the format explained therein.
 
