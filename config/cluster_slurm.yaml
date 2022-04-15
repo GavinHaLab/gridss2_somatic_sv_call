@@ -1,0 +1,23 @@
+__default__:
+    partition:  campus-new # users specified
+    mem:    4G
+    time:   "1:0:0"
+    ncpus:  1
+    ntasks: 1
+    output: logs/cluster/{rule}.%A.out
+
+gridss_preprocess:
+    time:   "15:0:0"
+    mem:    8G
+    ncpus:  4
+
+gridss_assemble:
+    time:   "300:0:0"
+    mem:    16G
+    ncpus:  8
+    
+gridss_call:
+    time:   "300:0:0"
+    mem:    16G
+    ncpus:  8
+    

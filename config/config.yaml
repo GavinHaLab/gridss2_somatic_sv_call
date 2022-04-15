@@ -1,0 +1,16 @@
+## path to tools/scripts
+gridss_jar:  /fh/fast/ha_g/user/mko/tools/gridss/target/gridss-0.0.1-SNAPSHOT-gridss-jar-with-dependencies.jar
+path_to_gridss: /fh/fast/ha_g/user/mko/tools/gridss/scripts/gridss
+scriptdir: /fh/fast/ha_g/user/mko/tools/gridss/scripts
+path_to_gripss: /fh/fast/ha_g/user/mko/tools/gridss/scripts/gripss.jar
+
+path_to_bedpe_src: /fh/fast/ha_g/projects/Collaborations/Haffner/VY01JHU528_basalCC/gridss2/script/simple-event-annotation.R
+java: /app/software/Java/11.0.2/bin/java
+
+#path to files
+reference_fasta:  /fh/fast/ha_g/grp/reference/GRCh38/Broad_bundle_hg38/v0/Homo_sapiens_assembly38.fasta
+reference_dict:  /fh/fast/ha_g/grp/reference/GRCh38/Broad_bundle_hg38/v0/Homo_sapiens_assembly38.dict
+
+pon_dir:  /fh/fast/ha_g/grp/reference/gridss_pon_hg38/
+
+bs_genome: hg38
