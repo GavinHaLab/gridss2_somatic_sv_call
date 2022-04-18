@@ -4,7 +4,7 @@ path_to_gridss: /fh/fast/ha_g/user/mko/tools/gridss/scripts/gridss
 scriptdir: /fh/fast/ha_g/user/mko/tools/gridss/scripts
 path_to_gripss: /fh/fast/ha_g/user/mko/tools/gridss/scripts/gripss.jar
 
-path_to_bedpe_src: /fh/fast/ha_g/projects/Collaborations/Haffner/VY01JHU528_basalCC/gridss2/script/simple-event-annotation.R
+path_to_bedpe_src: script/simple-event-annotation.R
 java: /app/software/Java/11.0.2/bin/java
 
 #path to files
