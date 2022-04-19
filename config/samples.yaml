@@ -1,4 +1,5 @@
-# Example run
+#sample title must excatly match to bam file name -- gridss2 creates working folder using bam file prefix.
+
 samples:
     176_ps8n_ET2323:  /fh/scratch/delete90/ha_g/Collaborator_Data/Broad_Terra/CRPC_patients-pdx_WGS/BAMs_symlink/176_ps8n_ET2323.bam
     189.3_ps3n_ET2405:  /fh/scratch/delete90/ha_g/Collaborator_Data/Broad_Terra/CRPC_patients-pdx_WGS/BAMs_symlink/189.3_ps3n_ET2405.bam
@@ -6,9 +7,9 @@ samples:
     13-117C1_NORMAL_MUSCLE:  /fh/scratch/delete90/ha_g/Collaborator_Data/Broad_Terra/CRPC_patients-pdx_WGS/BAMs_symlink/13-117C1_NORMAL_MUSCLE.bam    
 
 
-# No white space when you concatenate with comma
-# Must mention normal first and then tumor
-# Set group name same with Tumor sample name
+# Comma separated: normal_sample,tumor_sample
+# Set group name same as Tumor sample name
+# If you want to change group name to something else, you need to uncomment lines 162-165 from snakefile.
 groups:
     176_ps8n_ET2323: 13-117C1_NORMAL_MUSCLE,176_ps8n_ET2323
     189.3_ps3n_ET2405: 15-003C1_NORMAL_MUSCLE,189.3_ps3n_ET2405
