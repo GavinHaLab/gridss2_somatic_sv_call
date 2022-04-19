@@ -158,11 +158,11 @@ rule gridss_somatic_filter:
         """
         {params.java} -jar {params.path_to_gridss_somatic_filter} -vcf {input.vcf} -sample {params.tumor_sample} -reference {params.normal_sample} -ref_genome {input.reference} -pon_sgl_file {input.pon_sgl_file} -pon_sv_file {input.pon_sv_file} -output_dir {params.output_dir} > {log} 2> {log}
         
-        ##need to rename otherwise snakmemake complains.
-        mv results/vcf/{params.tumor_sample}.gripss.filtered.vcf.gz {output.output}
-        mv results/vcf/{params.tumor_sample}.gripss.filtered.vcf.gz.tbi {output.output}.tbi
-        mv results/vcf/{params.tumor_sample}.gripss.vcf.gz {output.output_all}
-        mv results/vcf/{params.tumor_sample}.gripss.vcf.gz.tbi {output.output_all}.tbi
+        # Use this only when group name is different from tumor sample name (uncomment this line in that case)
+        # mv results/vcf/{params.tumor_sample}.gripss.filtered.vcf.gz {output.output}
+        # mv results/vcf/{params.tumor_sample}.gripss.filtered.vcf.gz.tbi {output.output}.tbi
+        # mv results/vcf/{params.tumor_sample}.gripss.vcf.gz {output.output_all}
+        # mv results/vcf/{params.tumor_sample}.gripss.vcf.gz.tbi {output.output_all}.tbi
 
         """      
 
