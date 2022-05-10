@@ -67,8 +67,8 @@ rule all:
         expand("results/group.{group}.bam.gridss.working/group.{group}.bam{ending}", group=groups, ending=assembly_endings),
         expand("results/vcf/group.{group}.vcf", group=groups),
         expand("results/vcf/{group}.gripss.filtered.vcf.gz", group=groups),
-        expand("results/vcf/{group}.gripss.filtered.vcf", group=groups),
-        expand("results/bedpe_with_simple_annotation/{group}.gripss.filtered.bedpe", group=groups),
+        expand("results/vcf/{group}.gripss.filtered.pass.vcf", group=groups),
+        expand("results/bedpe_with_simple_annotation/{group}.gripss.filtered.pass.bedpe", group=groups),
 
 
 #Perfrom preprocess, all samples can be run in parallel
@@ -148,8 +148,8 @@ rule gridss_somatic_filter:
         normal_sample=lambda wildcards: get_group_samples(wildcards)[0],
         tumor_sample=lambda wildcards: get_group_samples(wildcards)[1],
     output:
-        output="results/vcf/{group}.gripss.filtered.vcf.gz", #this doesn't work when I change group to tumor
-        output_all="results/vcf/{group}.gripss.vcf.gz" #this doesn't work when I change group to tumor
+        output="results/vcf/{group}.gripss.filtered.vcf.gz", 
+        output_all="results/vcf/{group}.gripss.vcf.gz" 
     log:
         "logs/call/somatic_filter.{group}.log"
     threads:
@@ -176,15 +176,25 @@ rule unzip_somatic_vcf:
         gunzip -c {input} > {output}
         """
         
-rule create_bedpe_with_simpleSVannotation:
+rule get_pass_only:
     input:
         "results/vcf/{group}.gripss.filtered.vcf"
     output:
-        "results/bedpe_with_simple_annotation/{group}.gripss.filtered.bedpe"
+        "results/vcf/{group}.gripss.filtered.pass.vcf"
+    shell:
+        """
+        cat {input} | grep -v "PON" > ${output}
+        """        
+        
+rule create_bedpe_with_simple_annotation:
+    input:
+        "results/vcf/{group}.gripss.filtered.pass.vcf"
+    output:
+        "results/bedpe_with_simple_annotation/{group}.gripss.filtered.pass.bedpe"
     params:
-        path_to_bedpe_src=config["path_to_bedpe_src"],
+        r_script=config["path_to_bedpe_src"],
         bs_genome=config["bs_genome"],
         output_dir="results/bedpe_with_simple_annotation/"   
     shell:
-        "Rscript {params.path_to_bedpe_src} {input} {params.output_dir} {params.bs_genome}"
+        "Rscript {params.r_script} {input} {params.output_dir} {params.bs_genome}"
 
