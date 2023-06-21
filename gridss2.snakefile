@@ -181,10 +181,13 @@ rule get_pass_only:
         "results/vcf/{group}.gripss.filtered.vcf"
     output:
         "results/vcf/{group}.gripss.filtered.pass.vcf"
+    log:
+        "logs/get_pass_only/{group}.log"
     shell:
         """
-        cat {input} | grep -v "PON" > ${output}
+        cat {input} | grep -v "PON" > {output} 2>> {log}
         """        
+
         
 rule create_bedpe_with_simple_annotation:
     input:

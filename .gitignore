@@ -1,0 +1,9 @@
+.Rhistory
+results/
+logs/**
+*.bam
+*.out
+*.log
+.snakemake/metadata/*
+*/tmp*
+.snakemake/
